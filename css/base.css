@@ -442,3 +442,26 @@ p {
     color: var(--coral-deep);
     font-weight: 600;
 }
+
+/* ---- 13. CTA band */
+.cta-band {
+    padding: 4.5rem 0;
+    background: var(--coral);
+}
+.cta-inner {
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+}
+.cta-inner {
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+}
+.cta-inner h2 { color: #fff; }
+.cta-inner p { color: #FCE8E1; }
+.cta-inner .btn-primary {
+    margin-top: .5rem;
+    background: var(--moss-deep);
+}
+.cta-inner .btn-primary:hover { background-color: var(--moss); }
