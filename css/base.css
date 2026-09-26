@@ -394,3 +394,25 @@ p {
     font-weight: 600;
     color: var(--moss-deep);
 }
+
+/* ---- 12. Pet cards */
+.pets { padding: 2rem 0 5rem; }
+.pet-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.3rem;
+}
+.pet-card {
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+}
+.pet-card img { height: 190px; object-fit: cover; }
+.pet-body { padding: 1rem 1.2rem 1.3rem; }
+.pet-body p { 
+    margin: 0; 
+    font-size: .85rem;
+    color: var(--coral-deep);
+    font-weight: 600;
+}
