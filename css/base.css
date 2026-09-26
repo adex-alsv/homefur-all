@@ -597,4 +597,30 @@ p {
         max-width: none;
         margin-top: 14px;
     }
+    /* Mobile dropdown menu */
+    .main-nav {
+        position: fixed;
+        top: 76px;
+        left: 0;
+        right: 0;
+        z-index: 55;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        padding: .5rem 24px 1.75rem;
+        background: rgba(250, 245, 232, 0.92);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--line);
+        border-radius: 0 0 var(--radius) var(--radius);
+        box-shadow: 0 16px 30px rgba(35, 38, 32, 0.12);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(40px);
+        transition: transform .3s ease, opacity .3s ease, visibility .3s;
+    }
+    .main-nav.is-open {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
 }
