@@ -187,3 +187,23 @@ p {
     background: var(--ink);
     margin: 4px 0
 }
+
+/* 6. Hero */
+.hero { padding: 4.5rem 0 3rem; }
+
+.hero-inner {
+    display: gridd;
+    grid-template-columns: 1.05fr .95fr;
+    gap: 3.5rem;
+    align-items: center;
+}
+.hero-sub {
+    max-width: 46ch;
+    font-size: 1.05rem;
+}
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.8rem;
+    flex-wrap: wrap
+}
