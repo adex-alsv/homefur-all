@@ -290,3 +290,35 @@ p {
     font-size: clamp(1.8rem, 3vw, 2.6rem);
 }
 .stat-label { font-size: .85rem; color: #E8E2CF }
+
+/* ---- 9. How to help ---- */
+.help { padding: 5rem 0 }
+.help h2 { max-width: 20ch; }
+
+.help-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+}
+.help-card {
+    padding: 2rem;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+}
+
+.help-num {
+    display: inline-block;
+    margin-bottom: .8rem;
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--coral-deep);
+}
+.link-arrow {
+    font-weight: 600;
+    font-size: .9rem;
+    color: var(--moss-deep)
+}
+.link-arrow:hover { color:var(--coral-deep); }
