@@ -1,3 +1,12 @@
+/* ==========================================================================
+   HomeFur All — base.css
+   --------------------------------------------------------------------------
+   Shared foundations used on every page.
+   1. Design tokens (colors, fonts, sizes)
+   2. Base / reset
+   ========================================================================== */
+
+/* ---- 1. Design tokens ---- */
 :root {
   --moss: #2C4A3B;
   --sand-light: #FAF5E8;
@@ -12,10 +21,11 @@
   --font-body: "Inter", sans-serif;
 }
 
+/* ---- 2. Base / reset ---- */
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
+    box-sizing: border-box; /* Makes padding/borders count inside an element's width */
 }
 
 body {
