@@ -375,6 +375,8 @@ p {
     border: 1px solid var(--line);
     border-radius: var(--radius);
     transition: transform .2s ease, box-shadow .2s ease;
+    display: flex;
+    flex-direction: column;
 }
 .shelter-card img { 
     width: 100%; 
@@ -386,7 +388,12 @@ p {
     box-shadow: 0 12px 24px rgba(35, 38, 32, 0.12);
 }
 
-.shelter-body { padding: 1.4rem; }
+.shelter-body {
+    padding: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
 .shelter-loc {
     margin-bottom: .6rem;
     font-size: .82rem;
@@ -397,7 +404,8 @@ p {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: .9rem;
+    margin-top: auto;
+    padding-top: .9rem;
     border-top: 1px solid var(--line);
     font-size: .85rem;
     font-weight: 600;
