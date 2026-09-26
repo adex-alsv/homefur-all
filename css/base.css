@@ -465,3 +465,70 @@ p {
     background: var(--moss-deep);
 }
 .cta-inner .btn-primary:hover { background-color: var(--moss); }
+
+/* ---- 14. Footer ---- */
+.site-footer {
+    padding: 3.5rem 0 1.5rem;
+    background: var(--moss-deep);
+    color: #E8E2CF;
+}
+.footer-inner {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1.3fr;
+    gap: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.footer-brand .logo { color: #fff }
+.footer-brand p {
+    margin-top: .6rem;
+    font-size: .9rem;
+    color: #B9C2B4;
+}
+
+.footer-col h4 {
+    margin-bottom: 1rem;
+    font-size: .85rem;
+    text-transform: uppercase;
+    letter-spacing: .08rem;
+    color: var(--butter)
+}
+
+.footer-col a {
+    display: block;
+    margin-bottom: .7rem;
+    font-size: .9rem;
+    color: #D9DED2;
+}
+.footer-col a:hover { color: #fff; }
+
+.newsletter {
+    display: flex;
+    gap: .5rem;
+}
+.newsletter input {
+    flex: 1;
+    padding: .7em .9em;
+    border: none;
+    border-radius: 8px;
+    font-family: var(--font-body);
+    font-size: .85rem;
+}
+.newsletter button {
+    background: var(--coral);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: .7em 1em;
+    font-weight: 600;
+    font-size: .85rem;
+    cursor: pointer;
+}
+
+.footer-bottom {
+    padding-top: 1.5rem;
+    font-size: .8rem;
+    color: #8FA087;
+    text-align: center;
+}
