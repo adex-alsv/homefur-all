@@ -532,3 +532,10 @@ p {
     color: #8FA087;
     text-align: center;
 }
+
+/* ---- 15. Responsiveness ---- */
+@media (max-width: 1024px) {
+    .footer-inner {
+        grid-template-columns: 1fr 1fr;
+    }
+}
