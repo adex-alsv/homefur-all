@@ -12,6 +12,7 @@
   --sand-light: #FAF5E8;
   --coral: #E8785C;
   --ink: #232620;
+  --ink-soft: #4A4E43;
   --moss-deep: #1D3229;
   --coral-deep: #D45F42;
   --butter: #F0B94A;
@@ -43,4 +44,22 @@ img {
 a {
     color: inherit;
     text-decoration: none;
+}
+
+/* ---- 3. Typography ---- */
+h1, h2, h3 {
+    font-family: var(--font-display);
+    color: var(--moss-deep);
+    margin: 0 0 .5em;
+    line-height: 1.1;
+}
+
+h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 600; }
+h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); font-weight: 600; }
+h3 { font-size: 1.15rem; font-weight: 600; }
+
+p {
+    margin: 0 0 1em;
+    line-height: 1.6;
+    color: var(--ink-soft);
 }
