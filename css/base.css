@@ -63,3 +63,19 @@ p {
     line-height: 1.6;
     color: var(--ink-soft);
 }
+
+.eyebrow {
+    margin: 0 0 .6em;
+    font-family: var(--font-body);
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--coral-deep)
+}
+
+/* Visible outline when tabbing with a keyboard, for accessibility */
+:focus-visible {
+    outline: 3px solid var(--coral);
+    outline-offset: 3px;
+}
