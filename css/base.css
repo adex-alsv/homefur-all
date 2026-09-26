@@ -329,3 +329,35 @@ p {
     color: var(--moss-deep)
 }
 .link-arrow:hover { color:var(--coral-deep); }
+
+/* ---- 10. Section headers & filter pills ---- */
+.section-head {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.filter-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .6rem;
+}
+.pill {
+    padding: .5em 1.1em;
+    background: #fff;
+    border: 1.5px solid var(--line);
+    border-radius: 999px;
+    font-family: inherit;
+    font-size: .85rem;
+    font-weight: 600;
+    color: var(--ink);
+    cursor: pointer;
+}
+.pill.active {
+    background: var(--moss);
+    border-color: var(--moss);
+    color: #fff;
+}
