@@ -232,3 +232,25 @@ p {
     aspect-ratio: 3 / 4;
 }
 .tile-b, .tile-c { aspect-ratio: 1 / 1; }
+
+.stat-chip {
+    position: absolute;
+    left: -18px;
+    bottom: -18px;
+    max-width: 168px;
+    padding: 1rem 1.3rem;
+    background: var(--butter);
+    border-radius: var(--radius);
+    box-shadow: 0 10px 30px rgba(35, 38, 32, 0.18);
+}
+.stat-chip strong {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    color: var(--moss-deep)
+}
+.stat-chip span {
+    font-size: .78rem;
+    font-weight: 600;
+    color: var(--moss-deep);
+}
