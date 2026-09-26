@@ -282,11 +282,11 @@ p {
     gap: 1.5rem;
     text-align: center;
 }
-.stats-num {
+.stat-num {
     display: block;
     font-family: var(--font-display);
     font-weight: 600;
     color: var(--butter);
     font-size: clamp(1.8rem, 3vw, 2.6rem);
 }
-.stats-label { font-size: .85rem; color: #E8E2CF }
+.stat-label { font-size: .85rem; color: #E8E2CF }
