@@ -538,4 +538,17 @@ p {
     .footer-inner {
         grid-template-columns: 1fr 1fr;
     }
+
+    .shelter-grid .pet-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .header-inner { gap: 1rem; }
+    .logo { font-size: 1.15rem; white-space: nowrap; }
+    .main-nav { gap: 1.1rem; }
+    .main-nav a { font-size: .85rem; white-space: nowrap; }
+    .nav-cta { 
+        padding: .7em 1.2em; 
+        font-size: .85rem;
+        white-space: nowrap; 
+    }
 }
