@@ -552,3 +552,31 @@ p {
         white-space: nowrap; 
     }
 }
+
+@media (max-width: 860px) {
+    .hero-inner {
+        grid-template-columns: 1fr;
+    }
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 2rem;
+    }
+    .help-grid {
+        grid-template-columns: 1fr;
+    }
+    .header-inner { gap: .6rem; }
+    .logo {
+        font-size: 1rem;
+        gap: .4rem;
+    }
+    .logo-mark img {
+        width: 26px;
+        height: 26px;
+    }
+    .main-nav { gap: .8rem; }
+    .main-nav a { font-size: .78rem; }
+    .nav-cta { 
+        padding: .65em 1em;
+        font-size: .78rem;
+    }
+}
