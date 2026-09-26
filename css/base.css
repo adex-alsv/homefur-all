@@ -79,3 +79,51 @@ p {
     outline: 3px solid var(--coral);
     outline-offset: 3px;
 }
+
+/* ---- 4. Buttons ---- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: .85em 1.6em;
+    border: 1.5px solid transparent;
+    border-radius: 999px;
+    font-family: inherit;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform .15s ease, background .15s ease;
+}
+
+/* Filled coral - main CTA */
+.btn-primary {
+    background: var(--coral);
+    color: #fff;
+}
+.btn-primary:hover {
+    background: var(--coral-deep);
+    transform: translateY(-2px);
+}
+
+/* Outlined green - secondary action */
+.btn-ghost {
+    border-color: var(--moss);
+    color: var(--moss-deep);
+}
+.btn-ghost:hover {
+    background: var(--moss);
+    color: #fff;
+}
+
+/* Subtle outline, for grids like "See all shelters" */
+.btn-outline {
+    display: flex;
+    width: fit-content;
+    margin: 2.5rem auto 0;
+    border-color: var(--line);
+    color: var(--moss-deep);
+}
+.btn-outline:hover {
+    border-color: var(--moss);
+    background: #fff;
+}
