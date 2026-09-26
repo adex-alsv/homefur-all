@@ -361,3 +361,36 @@ p {
     border-color: var(--moss);
     color: #fff;
 }
+
+/* ---- 11. Shelter cards ---- */
+.shelters { padding: 4rem 0 }
+.shelter-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+.shelter-card {
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+}
+.shelter-card img { height: 170px; object-fit: cover; }
+
+.shelter-body { padding: 1.4rem; }
+.shelter-loc {
+    margin-bottom: .6rem;
+    font-size: .82rem;
+    font-weight: 600;
+    color: var(--coral-deep)
+}
+.shelter-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: .9rem;
+    border-top: 1px solid var(--line);
+    font-size: .85rem;
+    font-weight: 600;
+    color: var(--moss-deep);
+}
