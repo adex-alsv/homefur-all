@@ -624,3 +624,13 @@ p {
         transform: translateY(0);
     }
 }
+
+@media (max-width: 480px) {
+    .hero-art { grid-template-columns: 1fr; }
+    .tile-a {
+        grid-column: auto;
+        grid-row: auto;
+    }
+    .tile-a, .tile-b, .tile-c { aspect-ratio: 16 / 10; }
+    .footer-inner { grid-template-columns: 1fr; }
+}
