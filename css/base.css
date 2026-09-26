@@ -623,6 +623,19 @@ p {
         visibility: visible;
         transform: translateY(0);
     }
+    .main-nav a {
+        padding: 1.1rem 0;
+        font-size: 1.15rem;
+        border-bottom: 1px solid var(--line);
+    }
+
+    .main-nav a.nav-cta-mobile {
+        display: inline-flex;
+        margin-top: 1.5rem;
+        color: #fff;
+    }
+
+    body.nav-open { overflow: hidden }
 }
 
 @media (max-width: 480px) {
