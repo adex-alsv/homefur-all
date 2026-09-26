@@ -46,6 +46,13 @@ a {
     text-decoration: none;
 }
 
+/* Center content container */
+.wrap {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
 /* ---- 3. Typography ---- */
 h1, h2, h3 {
     font-family: var(--font-display);
