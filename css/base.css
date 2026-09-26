@@ -580,3 +580,21 @@ p {
         font-size: .78rem;
     }
 }
+
+@media (max-width: 640px) {
+    .nav-cta { display: none; }
+    .nav-toggle { display: block; }
+
+    .shelter-grid { grid-template-columns: 1fr; }
+    .pet-grid { grid-template-columns: 1fr 1fr; }
+
+    .section-head {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .stat-chip {
+        position: static;
+        max-width: none;
+        margin-top: 14px;
+    }
+}
