@@ -168,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-/* ---- 6. Custom Searchable Combobox (Text Search + Full Dropdown) ---- */
+//* ---- 6. Custom Searchable Combobox (Text Search + Full Dropdown) ---- */
 function setupSearchableComboboxes() {
   const inputs = document.querySelectorAll('input[list]');
 
@@ -176,6 +176,10 @@ function setupSearchableComboboxes() {
     const listId = input.getAttribute('list');
     const datalist = document.getElementById(listId);
     if (!datalist) return;
+
+    // Turn off native browser autocomplete and remove list attribute to prevent double dropdown
+    input.setAttribute('autocomplete', 'off');
+    input.removeAttribute('list');
 
     // Wrap input inside container if not already wrapped
     let wrapper = input.closest('.select-wrapper');
@@ -247,7 +251,3 @@ function setupSearchableComboboxes() {
     });
   });
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-  setupSearchableComboboxes();
-});
