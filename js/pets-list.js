@@ -19,20 +19,20 @@ class Pet {
 
 const pets = [
     // Page 1
-    new Pet(1, 'Mochi', 'dog', 'Aspin', '2 yrs', 'The Pawject', 'images/landing/adopt1-mochi.jpeg'),
+    new Pet(1, 'Mochi', 'dog', 'Golden Retrivier Aspin Mix', '2 yrs', 'The Pawject', 'images/landing/adopt1-mochi.jpeg'),
     new Pet(2, 'Ube', 'cat', 'Puspin', '1 yr', 'Noah\'s Ark Dog and Cat Shelter', 'images/landing/adopt2-ube.jpeg'),
     new Pet(3, 'Biscuit', 'dog', 'Shih Tzu Mix', '5 yrs', 'PAWS Animal Rehabilitation Center', 'images/landing/adopt3-biscuit.jpeg'),
     new Pet(4, 'Luna', 'cat', 'Puspin', '8 mos', 'LYKA\'s Dog and Cat Shelter', 'images/landing/adopt4-luna.jpeg'),
-    new Pet(5, 'Hanni', 'dog', 'Aspin', '1.5 yrs', 'The Pawject', 'images/adopt/adopt5-hanni.jpeg'),
-    new Pet(6, 'Dani', 'cat', 'Puspin', '2 yrs', 'LYKA\'s Dog and Cat Shelter', 'images/adopt/adopt6-dani.jpeg'),
-    new Pet(7, 'Jiro', 'dog', 'Aspin', '3 yrs', 'Noah\'s Ark Dog and Cat Shelter', 'images/adopt/adopt7-jiro.jpeg'),
-    new Pet(8, 'Kloi', 'cat', 'Puspin', '6 mos', 'The Home of Well-Loved Strays', 'images/adopt/adopt8-kloi.jpeg'),
+    new Pet(5, 'Dog', 'dog', 'Aspin', '1.5 yrs', 'The Pawject', 'images/adopt/adopt5-dani.jpeg'),
+    new Pet(6, 'Hanni', 'cat', 'Puspin', '2 yrs', 'LYKA\'s Dog and Cat Shelter', 'images/adopt/adopt6-hanni.jpeg'),
+    new Pet(7, 'Myanni', 'dog', 'Aspin', '3 yrs', 'Noah\'s Ark Dog and Cat Shelter', 'images/adopt/adopt7-myanni.jpeg'),
+    new Pet(8, 'Kloi', 'cat', 'Sphynx Puspin Mix', '6 mos', 'The Home of Well-Loved Strays', 'images/adopt/adopt8-kloi.jpeg'),
 
     // Page 2
     new Pet(9, 'Hiroshi', 'cat', 'Lynx Siamese Mix', '2 yrs', 'The Pawject', 'images/adopt/adopt9-hiro.jpeg'),
-    new Pet(10, 'Pepper', 'cat', 'Puspin', '1 yr', 'PAWSsion Project', 'images/adopt/adopt10-pepper.jpeg'),
-    new Pet(11, 'Teddy', 'dog', 'Hound Mix', '6 yrs', 'Hound Haven PH Inc.', 'images/adopt/adopt11-Teddy.jpeg'),
-    new Pet(12, 'Simba', 'cat', 'Puspin', '2 yrs', 'Animal Rescue PH', 'images/adopt/adopt12-simba.jpeg'),
+    new Pet(10, 'Max', 'dog', 'Pomeranian', '1 yr', 'PAWSsion Project', 'images/adopt/adopt10-max.jpeg'),
+    new Pet(11, 'Jiro', 'dog', 'Hound Mix', '6 yrs', 'Hound Haven PH Inc.', 'images/adopt/adopt11-jiro.jpeg'),
+    new Pet(12, 'Sarrih', 'cat', 'Puspin', '2 yrs', 'Animal Rescue PH', 'images/adopt/adopt12-sarrih.jpeg'),
     new Pet(13, 'Bruno', 'dog', 'Aspin', '1 yr', 'Quezon City Animal Care and Adoption Center (Government Office)', 'images/adopt/adopt13-bruno.jpeg'),
     new Pet(14, 'Nala', 'cat', 'Puspin', '3 yrs', 'PAWS Animal Rehabilitation Center', 'images/adopt/adopt14-nala.jpeg'),
     new Pet(15, 'Rocky', 'dog', 'Aspin Mix', '2 yrs', 'Panotxa Kayumanggi OPC (Biyaya Animal Care)', 'images/adopt/adopt15-rocky.jpeg'),
