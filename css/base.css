@@ -4,6 +4,19 @@
    Shared foundations used on every page.
    1. Design tokens (colors, fonts, sizes)
    2. Base / reset
+   3. Typography
+   4.Buttons
+   5. Header & navigation
+   6. Hero
+   7. Leash Divider
+   8. Stats band
+   10. Section headers and filter pills
+   11. Shelter cards
+   12. Pet cards
+   13. CTA band
+   14. Footer
+   15. Responsiveness
+   16. Print and reduced motion
    ========================================================================== */
 
 /* ---- 1. Design tokens ---- */
@@ -310,7 +323,7 @@ p {
     color: var(--moss-deep);
 }
 
-/* ---- 7. Leash divider */
+/* ---- 7. Leash divider ---- */
 .leash-divider {
     padding: 14px 0;
     line-height: 0;

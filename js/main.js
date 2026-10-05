@@ -4,6 +4,8 @@
    1. Mobile menu: hamburger toggle, close on link click, close on Escape.
    2. Forms: fake-submit handling (no backend — shows a thank-you message).
    3. Filter pills: supports multiple pill rows combined (province + city).
+   4. Global Intersection Observer for Scroll Animations
+   5. Multi-Tile Hero Collage Transition
    ========================================================================== */
 
 
@@ -49,7 +51,7 @@ document.querySelectorAll('form[data-form]').forEach(form => {
   });
 });
 
-/* ---- Filter pills (supports multiple pill rows combined, e.g. province + city) ---- */
+/* ---- 3. Filter pills (supports multiple pill rows combined, e.g. province + city) ---- */
 document.querySelectorAll('.filter-pills[data-target]').forEach(group => {
   const target = document.querySelector(group.dataset.target);
   const key = group.dataset.filterKey; // e.g. "province" or "city"
@@ -103,7 +105,7 @@ function applyFilters(grid) {
   });
 }
 
-/* Global Intersection Observer for Scroll Animations */
+/* 4. Global Intersection Observer for Scroll Animations */
 document.addEventListener('DOMContentLoaded', () => {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -116,9 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
 });
 
-/* ==========================================================================
-   Multi-Tile Hero Collage Transition
-   ========================================================================== */
+/* 5. Multi-Tile Hero Collage Transition */
 document.addEventListener('DOMContentLoaded', () => {
   const slideshows = document.querySelectorAll('.hero-slideshow');
   if (!slideshows.length) return;

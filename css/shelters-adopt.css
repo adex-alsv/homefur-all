@@ -3,6 +3,13 @@
    --------------------------------------------------------------------------
    Shelters page and Adopt page. Loads after base.css.
    1. Page layout + filter spacing
+   2. Filter dropdown
+   3. Hoverabble contact popover
+   4. Show popover on hover or focus
+   5. Pet cards hover effects
+   6. Pet badge with custom image icon
+   7. Filter controls stack & input styling
+   8. Skeleton loader styless
    ========================================================================== */
 
 /* ---- 1. Page layout + filter spacing ---- */
@@ -61,7 +68,8 @@
   text-align: center;
   color: var(--ink-soft);
 }
-/* ---- Filter Dropdown Wrapper ---- */
+
+/* ---- 2. Filter Dropdown ---- */
 .filter-dropdown {
   margin-bottom: 2.5rem;
   position: relative; 
@@ -107,7 +115,7 @@
   pointer-events: none; 
 }
 
-/* ---- Hoverable Contact Popover ---- */
+/* ---- 3. Hoverable Contact Popover ---- */
 .contact-popover-wrapper {
   position: relative;
   display: inline-block;
@@ -161,7 +169,7 @@
   border-color: #fff transparent transparent transparent;
 }
 
-/* Show popover on hover or focus */
+/* 4. Show popover on hover or focus */
 .contact-popover-wrapper:hover .contact-popover,
 .contact-popover-wrapper:focus-within .contact-popover {
   opacity: 1;
@@ -201,7 +209,7 @@
   vertical-align: middle;
 }
 
-/* ---- Pet Card Hover Effects ---- */
+/* ---- 5. Pet Card Hover Effects ---- */
 .pet-card {
   position: relative;
   overflow: hidden;
@@ -256,7 +264,7 @@
   visibility: visible;
 }
 
-/* ---- Pet Badge with Custom Image Icon ---- */
+/* ---- 6. Pet Badge with Custom Image Icon ---- */
 .pet-badge {
   align-self: flex-start;
   display: inline-flex;
@@ -315,7 +323,7 @@
 .contact-info a:hover {
   color: #fff;
 }
-/* ---- Filter Controls Stack & Input Styling ---- */
+/* ---- 7. Filter Controls Stack & Input Styling ---- */
 .filter-controls {
   display: flex;
   flex-direction: column;
@@ -372,7 +380,7 @@
   pointer-events: none;
 }
 
-/* ---- Skeleton Loader Styles ---- */
+/* ---- 8. Skeleton Loader Styles ---- */
 .skeleton-card {
   pointer-events: none;
 }
