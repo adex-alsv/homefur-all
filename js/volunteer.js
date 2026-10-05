@@ -8,15 +8,39 @@
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
-  /* ---- 1. Dynamic Shelter Datalist Population ---- */
+  /* ---- 1. Dynamic Shelter Input / Select Population ---- */
+  const shelterInput = document.getElementById('target-shelter');
   const datalist = document.getElementById('shelters-datalist');
 
-  if (datalist && typeof shelters !== 'undefined') {
-    shelters.forEach(s => {
-      const option = document.createElement('option');
-      option.value = `${s.name} (${s.city}, ${s.province})`;
-      datalist.appendChild(option);
-    });
+  if (shelterInput && typeof shelters !== 'undefined') {
+    const isMobile = window.matchMedia('(max-width: 768px)').matches || ('ontouchstart' in window);
+
+    if (isMobile) {
+      // Create native <select> picker directly with shelter options
+      const select = document.createElement('select');
+      select.id = shelterInput.id;
+      select.className = shelterInput.className;
+      select.name = shelterInput.name;
+
+      let optionsHtml = `<option value="">Select or type shelter...</option>
+        <option value="No preference (Any shelter in need)">No preference (Any shelter in need)</option>`;
+
+      shelters.forEach(s => {
+        const value = `${s.name} (${s.city}, ${s.province})`;
+        optionsHtml += `<option value="${value}">${value}</option>`;
+      });
+
+      select.innerHTML = optionsHtml;
+      shelterInput.replaceWith(select);
+    } else if (datalist) {
+      // Standard datalist for desktop
+      datalist.innerHTML = '';
+      shelters.forEach(s => {
+        const option = document.createElement('option');
+        option.value = `${s.name} (${s.city}, ${s.province})`;
+        datalist.appendChild(option);
+      });
+    }
   }
 
   /* ---- 2. Donation Custom Amount Toggle ---- */

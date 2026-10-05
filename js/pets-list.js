@@ -143,24 +143,46 @@ let currentPetPage = 1;
 
 const petGrid = document.getElementById('pet-grid');
 const petFilterGroup = document.querySelector('.filter-pills[data-filter-key="type"]');
-const petShelterInput = document.getElementById('pet-shelter-filter');
-const petShelterDatalist = document.getElementById('pet-shelters-datalist');
 const petPagerPrev = document.getElementById('pager-prev');
 const petPagerNext = document.getElementById('pager-next');
 const petPagerStatus = document.getElementById('pager-status');
 
-/* Populate Shelter Datalist dynamically */
+/* Mobile-Friendly Datalist/Select Switcher */
 function populatePetShelterDatalist() {
-  if (!petShelterDatalist) return;
-  
-  // Extract unique shelter names from pets array
+  const petShelterInput = document.getElementById('pet-shelter-filter');
+  const petShelterDatalist = document.getElementById('pet-shelters-datalist');
+  if (!petShelterInput) return;
+
   const uniqueShelters = [...new Set(pets.map(p => p.shelterName))].sort();
-  
-  uniqueShelters.forEach(shelterName => {
-    const option = document.createElement('option');
-    option.value = shelterName;
-    petShelterDatalist.appendChild(option);
-  });
+  const isMobile = window.matchMedia('(max-width: 768px)').matches || ('ontouchstart' in window);
+
+  if (isMobile) {
+    const select = document.createElement('select');
+    select.id = petShelterInput.id;
+    select.className = petShelterInput.className;
+    
+    select.innerHTML = `<option value="">All Shelters</option>` + 
+      uniqueShelters.map(s => `<option value="${s}">${s}</option>`).join('');
+
+    petShelterInput.replaceWith(select);
+
+    select.addEventListener('change', () => {
+      currentPetPage = 1;
+      renderPetPage();
+    });
+  } else if (petShelterDatalist) {
+    petShelterDatalist.innerHTML = '';
+    uniqueShelters.forEach(shelterName => {
+      const option = document.createElement('option');
+      option.value = shelterName;
+      petShelterDatalist.appendChild(option);
+    });
+
+    petShelterInput.addEventListener('input', () => {
+      currentPetPage = 1;
+      renderPetPage();
+    });
+  }
 }
 
 function getActiveType() {
@@ -171,7 +193,8 @@ function getActiveType() {
 
 function getFilteredPets() {
   const type = getActiveType();
-  const shelterQuery = petShelterInput ? petShelterInput.value.trim().toLowerCase() : '';
+  const shelterControl = document.getElementById('pet-shelter-filter');
+  const shelterQuery = shelterControl ? shelterControl.value.trim().toLowerCase() : '';
 
   return pets.filter(p => {
     const matchesType = (type === 'all' || p.type === type);
@@ -201,10 +224,8 @@ function renderSkeletons(count = 8) {
 function renderPetPage() {
   if (!petGrid) return;
 
-  // Show skeletons immediately
   renderSkeletons(PETS_PAGE_SIZE);
 
-  // Render actual cards after a short transition frame
   setTimeout(() => {
     const filtered = getFilteredPets();
     const totalPages = Math.max(1, Math.ceil(filtered.length / PETS_PAGE_SIZE));
@@ -223,7 +244,7 @@ function renderPetPage() {
   }, 200);
 }
 
-/* Event listeners */
+/* Pagination Click Handlers */
 if (petPagerPrev) {
   petPagerPrev.addEventListener('click', () => {
     if (currentPetPage > 1) {
@@ -249,13 +270,6 @@ if (petFilterGroup) {
     if (!pill) return;
 
     petFilterGroup.querySelectorAll('.pill').forEach(p => p.classList.toggle('active', p === pill));
-    currentPetPage = 1;
-    renderPetPage();
-  });
-}
-
-if (petShelterInput) {
-  petShelterInput.addEventListener('input', () => {
     currentPetPage = 1;
     renderPetPage();
   });

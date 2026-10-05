@@ -103,6 +103,41 @@
   border-color: var(--moss); 
 }
 
+/* ---- Fix Select Dropdown Styling on Mobile ---- */
+select.filter-input,
+select#pet-shelter-filter,
+select#target-shelter,
+select#city-filter {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 0.75rem 2.5rem 0.75rem 1rem;
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: var(--text, #1c2b23);
+  background-color: var(--card-bg, #ffffff);
+  border: 1px solid var(--line, #e2e8f0);
+  border-radius: 9999px; /* Matches pill button styling */
+  outline: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%232C4A3B' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1.25rem center;
+  background-size: 14px;
+  cursor: pointer;
+}
+
+/* Container safeguard to prevent screen overflowing */
+.filter-controls,
+.filter-row {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
 /* ---- Custom Arrow (Moved to the wrapper) ---- */
 .filter-dropdown::after { 
   content: "\2193";       
