@@ -23,7 +23,7 @@ const pets = [
     new Pet(2, 'Ube', 'cat', 'Puspin', '1 yr', 'Noah\'s Ark Dog and Cat Shelter', 'images/landing/adopt2-ube.jpeg'),
     new Pet(3, 'Biscuit', 'dog', 'Shih Tzu Mix', '5 yrs', 'PAWS Animal Rehabilitation Center', 'images/landing/adopt3-biscuit.jpeg'),
     new Pet(4, 'Luna', 'cat', 'Puspin', '8 mos', 'LYKA\'s Dog and Cat Shelter', 'images/landing/adopt4-luna.jpeg'),
-    new Pet(5, 'Dog', 'dog', 'Aspin', '1.5 yrs', 'The Pawject', 'images/adopt/adopt5-dani.jpeg'),
+    new Pet(5, 'Dani', 'dog', 'Aspin', '1.5 yrs', 'The Pawject', 'images/adopt/adopt5-dani.jpeg'),
     new Pet(6, 'Hanni', 'cat', 'Puspin', '2 yrs', 'LYKA\'s Dog and Cat Shelter', 'images/adopt/adopt6-hanni.jpeg'),
     new Pet(7, 'Myanni', 'dog', 'Aspin', '3 yrs', 'Noah\'s Ark Dog and Cat Shelter', 'images/adopt/adopt7-myanni.jpeg'),
     new Pet(8, 'Kloi', 'cat', 'Sphynx Puspin Mix', '6 mos', 'The Home of Well-Loved Strays', 'images/adopt/adopt8-kloi.jpeg'),
