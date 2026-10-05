@@ -39,7 +39,7 @@
 </header>
 <main>
 
-  <section class="hero" id="about">
+<section class="hero" id="about">
     <div class="wrap hero-inner">
       <div class="hero-copy">
         <p class="eyebrow">A directory of local rescues</p>
@@ -51,14 +51,20 @@
         </div>
       </div>
       <div class="hero-art">
-        <div class="art-tile tile-a">
-          <img src="images/landing/dog-tilea.jpeg" alt="Dog looking up">
+        <div class="art-tile tile-a hero-slideshow">
+          <img class="slide active" src="images/landing/dog-tilea.jpeg" alt="Dog looking up">
+          <img class="slide" src="images/shelter/shelter-qc-center.jpeg" alt="Pet photo transition">
         </div>
-        <div class="art-tile tile-b">
-          <img src="images/landing/cat-tileb.jpeg" alt="Cat resting">
+
+        <!-- Dynamic transition tile -->
+        <div class="art-tile tile-b hero-slideshow">
+          <img class="slide active" src="images/landing/cat-tileb.jpeg" alt="Cat resting">
+          <img class="slide" src="images/landing/adopt2-ube.jpeg" alt="Pet photo transition">
         </div>
-        <div class="art-tile tile-c">
-          <img src="images/landing/dog-tilec.jpeg" alt="Dog outdoors">
+
+        <div class="art-tile tile-c hero-slideshow">
+          <img class="slide active" src="images/landing/dog-tilec.jpeg" alt="Dog outdoors">
+          <img class="slide" src="images/shelter/shelter-pawssion.jpeg" alt="Pet photo transition">
         </div>
         <div class="stat-chip">
           <strong>12</strong>
@@ -66,7 +72,7 @@
         </div>
       </div>
     </div>
-  </section>
+</section>
 
     <div class="leash-divider" aria-hidden="true">
         <svg viewBox="0 0 1200 60" preserveAspectRatio="none">

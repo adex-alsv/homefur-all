@@ -115,3 +115,52 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
 });
+
+/* ==========================================================================
+   Multi-Tile Hero Collage Transition
+   ========================================================================== */
+document.addEventListener('DOMContentLoaded', () => {
+  const slideshows = document.querySelectorAll('.hero-slideshow');
+  if (!slideshows.length) return;
+
+  // Image pools for each tile
+  const tileImagePools = [
+    [
+      'images/landing/dog-tilea.jpeg',
+      'images/shelter/shelter-akf.jpeg',
+      'images/shelter/shelter-angeles-office.jpg'
+    ],
+    [
+      'images/landing/cat-tileb.jpeg',
+      'images/shelter/shelter-hound-haven.jpeg',
+      'images/shelter/shelter-biyaya.jpeg'
+    ],
+    [
+      'images/landing/dog-tilec.jpeg',
+      'images/shelter/shelter-hows.jpg',
+      'images/shelter/shelter-pawssion.jpeg'
+    ]
+  ];
+
+  slideshows.forEach((slideshow, tileIndex) => {
+    const slides = slideshow.querySelectorAll('.slide');
+    if (slides.length < 2) return;
+
+    const images = tileImagePools[tileIndex] || tileImagePools[0];
+    let currentIndex = 0;
+
+    // Stagger start time for each tile
+    const intervalTime = 4000 + (tileIndex * 1200);
+
+    setInterval(() => {
+      const currentSlide = slides[0].classList.contains('active') ? slides[0] : slides[1];
+      const nextSlide = currentSlide === slides[0] ? slides[1] : slides[0];
+
+      currentIndex = (currentIndex + 1) % images.length;
+      nextSlide.src = images[currentIndex];
+
+      nextSlide.classList.add('active');
+      currentSlide.classList.remove('active');
+    }, intervalTime);
+  });
+});
