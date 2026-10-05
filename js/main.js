@@ -6,7 +6,6 @@
    3. Filter pills: supports multiple pill rows combined (province + city).
    4. Global Intersection Observer for Scroll Animations
    5. Multi-Tile Hero Collage Transition
-   6. Universal Mobile Datalist Fix for iOS/Android
    ========================================================================== */
 
 
@@ -164,38 +163,4 @@ document.addEventListener('DOMContentLoaded', () => {
       currentSlide.classList.remove('active');
     }, intervalTime);
   });
-});
-
-/* 6. Universal Mobile Datalist Fix for iOS/Android */
-function fixMobileDatalists() {
-  const isMobile = window.matchMedia('(max-width: 768px)').matches || ('ontouchstart' in window);
-  if (!isMobile) return;
-
-  const inputsWithDatalist = document.querySelectorAll('input[list]');
-
-  inputsWithDatalist.forEach(input => {
-    const listId = input.getAttribute('list');
-    const datalist = document.getElementById(listId);
-    if (!datalist) return;
-
-    const select = document.createElement('select');
-    select.id = input.id;
-    select.className = input.className;
-    select.name = input.name;
-
-    select.innerHTML = `<option value="">${input.placeholder || 'Select option...'}</option>`;
-
-    datalist.querySelectorAll('option').forEach(opt => {
-      const option = document.createElement('option');
-      option.value = opt.value;
-      option.textContent = opt.textContent || opt.value;
-      select.appendChild(option);
-    });
-
-    input.replaceWith(select);
-  });
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  fixMobileDatalists();
 });
