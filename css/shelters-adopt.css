@@ -337,14 +337,13 @@
 .filter-controls .select-wrapper {
   margin-bottom: 0;
   width: 280px;
-  max-width: 100%; /* Prevents horizontal overflowing on mobile screens */
+  max-width: 100%;
   position: relative;
 }
 
-/* Shared styling for both Desktop <input list> and Mobile <select> controls */
-.filter-controls input[list],
-.filter-controls select,
-.select-wrapper select {
+/* Ensure input fields inside .select-wrapper match pill button styling */
+.filter-controls input,
+.select-wrapper input {
   width: 100%;
   box-sizing: border-box;
   padding: .65em 2.6em .65em 1.2em !important;
@@ -359,28 +358,19 @@
   cursor: pointer;
   transition: border-color .15s ease, box-shadow .15s ease;
   
-  /* Reset browser native styling (strips default iOS grey appearance) */
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
 }
 
-/* Hide native browser arrow indicators */
-.filter-controls input::-webkit-calendar-picker-indicator {
-  display: none !important;
-  opacity: 0 !important;
-}
-
-.filter-controls input[list]:hover,
-.filter-controls input[list]:focus,
-.filter-controls select:hover,
-.filter-controls select:focus,
-.select-wrapper select:hover,
-.select-wrapper select:focus {
+.filter-controls input:hover,
+.filter-controls input:focus,
+.select-wrapper input:hover,
+.select-wrapper input:focus {
   border-color: var(--moss);
 }
 
-/* Custom arrow positioning for inputs and select wrappers */
+/* Custom arrow positioning */
 .filter-controls .select-wrapper::after,
 .select-wrapper::after {
   content: "\2193";
