@@ -1,7 +1,7 @@
 /* ==========================================================================
    HomeFur All — volunteer.js
    --------------------------------------------------------------------------
-   1. Dynamic Shelter Datalist (Search + Dropdown)
+   1. Dynamic Shelter Input / Select Population (Handles both Volunteer & Donation)
    2. Donation Custom Amount & Payment Toggle
    3. Checkbox Group Validation (Availability & Interest)
    4. Form Submissions & Status Handling
@@ -9,32 +9,38 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   /* ---- 1. Dynamic Shelter Input / Select Population ---- */
-  const shelterInput = document.getElementById('target-shelter');
+  // Target both inputs: #v-shelter (Volunteer) and #d-shelter (Donate)
+  const shelterInputs = document.querySelectorAll('#v-shelter, #d-shelter');
   const datalist = document.getElementById('shelters-datalist');
 
-  if (shelterInput && typeof shelters !== 'undefined') {
+  if (shelterInputs.length > 0 && typeof shelters !== 'undefined' && Array.isArray(shelters)) {
     const isMobile = window.matchMedia('(max-width: 768px)').matches || ('ontouchstart' in window);
 
-    if (isMobile) {
-      // Create native <select> picker directly with shelter options
-      const select = document.createElement('select');
-      select.id = shelterInput.id;
-      select.className = shelterInput.className;
-      select.name = shelterInput.name;
+    shelterInputs.forEach(input => {
+      if (isMobile) {
+        // Create native <select> picker directly on mobile
+        const select = document.createElement('select');
+        select.id = input.id;
+        select.className = input.className || 'filter-input';
+        select.name = input.name;
+        select.required = input.required;
 
-      let optionsHtml = `<option value="">Select or type shelter...</option>
-        <option value="No preference (Any shelter in need)">No preference (Any shelter in need)</option>`;
+        let optionsHtml = `<option value="">Select or type shelter...</option>
+          <option value="No preference (Any shelter in need)">No preference (Any shelter in need)</option>`;
 
-      shelters.forEach(s => {
-        const value = `${s.name} (${s.city}, ${s.province})`;
-        optionsHtml += `<option value="${value}">${value}</option>`;
-      });
+        shelters.forEach(s => {
+          const value = `${s.name} (${s.city}, ${s.province})`;
+          optionsHtml += `<option value="${value}">${value}</option>`;
+        });
 
-      select.innerHTML = optionsHtml;
-      shelterInput.replaceWith(select);
-    } else if (datalist) {
-      // Standard datalist for desktop
-      datalist.innerHTML = '';
+        select.innerHTML = optionsHtml;
+        input.replaceWith(select);
+      }
+    });
+
+    // Populate datalist for Desktop users
+    if (!isMobile && datalist) {
+      datalist.innerHTML = '<option value="No preference (Any shelter in need)"></option>';
       shelters.forEach(s => {
         const option = document.createElement('option');
         option.value = `${s.name} (${s.city}, ${s.province})`;
@@ -68,7 +74,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const volunteerForm = document.getElementById('volunteer-form');
 
   if (volunteerForm) {
-    // Clear error messages on checkbox selection
     volunteerForm.querySelectorAll('.check-group[data-require-one]').forEach(group => {
       group.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
         checkbox.addEventListener('change', () => {
