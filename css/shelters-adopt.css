@@ -9,7 +9,7 @@
    5. Pet cards hover effects
    6. Pet badge with custom image icon
    7. Filter controls stack & input styling
-   8. Skeleton loader styless
+   8. Skeleton loader styles
    ========================================================================== */
 
 /* ---- 1. Page layout + filter spacing ---- */
@@ -101,41 +101,6 @@
 .city-select:hover, 
 .city-select:focus { 
   border-color: var(--moss); 
-}
-
-/* ---- Fix Select Dropdown Styling on Mobile ---- */
-select.filter-input,
-select#pet-shelter-filter,
-select#target-shelter,
-select#city-filter {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  width: 100%;
-  max-width: 100%;
-  box-sizing: border-box;
-  padding: 0.75rem 2.5rem 0.75rem 1rem;
-  font-size: 0.95rem;
-  font-family: inherit;
-  color: var(--text, #1c2b23);
-  background-color: var(--card-bg, #ffffff);
-  border: 1px solid var(--line, #e2e8f0);
-  border-radius: 9999px; /* Matches pill button styling */
-  outline: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%232C4A3B' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 1.25rem center;
-  background-size: 14px;
-  cursor: pointer;
-}
-
-/* Container safeguard to prevent screen overflowing */
-.filter-controls,
-.filter-row {
-  width: 100%;
-  max-width: 100%;
-  box-sizing: border-box;
-  overflow: hidden;
 }
 
 /* ---- Custom Arrow (Moved to the wrapper) ---- */
@@ -358,25 +323,32 @@ select#city-filter {
 .contact-info a:hover {
   color: #fff;
 }
-/* ---- 7. Filter Controls Stack & Input Styling ---- */
+
+/* ---- 7. Filter Controls Stack & Input/Select Styling ---- */
 .filter-controls {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   gap: 0.8rem;
+  width: 100%;
 }
 
 .filter-controls .filter-dropdown,
 .filter-controls .select-wrapper {
   margin-bottom: 0;
   width: 280px;
+  max-width: 100%; /* Prevents horizontal overflowing on mobile screens */
   position: relative;
 }
 
-.filter-controls input[list] {
+/* Shared styling for both Desktop <input list> and Mobile <select> controls */
+.filter-controls input[list],
+.filter-controls select,
+.select-wrapper select {
   width: 100%;
-  padding: .6em 2.6em .6em 1.2em !important;
-  background: #fff;
+  box-sizing: border-box;
+  padding: .65em 2.6em .65em 1.2em !important;
+  background-color: #fff;
   border: 1.5px solid var(--line);
   border-radius: 999px;
   font-family: inherit;
@@ -386,24 +358,31 @@ select#city-filter {
   outline: none;
   cursor: pointer;
   transition: border-color .15s ease, box-shadow .15s ease;
+  
+  /* Reset browser native styling (strips default iOS grey appearance) */
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
 }
 
-/* Hide native Chrome/Blink datalist arrow to prevent double arrows */
+/* Hide native browser arrow indicators */
 .filter-controls input::-webkit-calendar-picker-indicator {
   display: none !important;
   opacity: 0 !important;
 }
 
 .filter-controls input[list]:hover,
-.filter-controls input[list]:focus {
+.filter-controls input[list]:focus,
+.filter-controls select:hover,
+.filter-controls select:focus,
+.select-wrapper select:hover,
+.select-wrapper select:focus {
   border-color: var(--moss);
 }
 
-/* Custom arrow positioning */
-.filter-controls .select-wrapper::after {
+/* Custom arrow positioning for inputs and select wrappers */
+.filter-controls .select-wrapper::after,
+.select-wrapper::after {
   content: "\2193";
   font-size: 1rem;
   font-weight: 600;
