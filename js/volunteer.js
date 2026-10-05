@@ -1,51 +1,27 @@
 /* ==========================================================================
    HomeFur All — volunteer.js
    --------------------------------------------------------------------------
-   1. Dynamic Shelter Input / Select Population (Handles both Volunteer & Donation)
+   1. Dynamic Shelter Datalist Population (Volunteer & Donation)
    2. Donation Custom Amount & Payment Toggle
    3. Checkbox Group Validation (Availability & Interest)
    4. Form Submissions & Status Handling
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
-  /* ---- 1. Dynamic Shelter Input / Select Population ---- */
-  // Target both inputs: #v-shelter (Volunteer) and #d-shelter (Donate)
-  const shelterInputs = document.querySelectorAll('#v-shelter, #d-shelter');
+  /* ---- 1. Dynamic Shelter Datalist Population ---- */
   const datalist = document.getElementById('shelters-datalist');
 
-  if (shelterInputs.length > 0 && typeof shelters !== 'undefined' && Array.isArray(shelters)) {
-    const isMobile = window.matchMedia('(max-width: 768px)').matches || ('ontouchstart' in window);
-
-    shelterInputs.forEach(input => {
-      if (isMobile) {
-        // Create native <select> picker directly on mobile
-        const select = document.createElement('select');
-        select.id = input.id;
-        select.className = input.className || 'filter-input';
-        select.name = input.name;
-        select.required = input.required;
-
-        let optionsHtml = `<option value="">Select or type shelter...</option>
-          <option value="No preference (Any shelter in need)">No preference (Any shelter in need)</option>`;
-
-        shelters.forEach(s => {
-          const value = `${s.name} (${s.city}, ${s.province})`;
-          optionsHtml += `<option value="${value}">${value}</option>`;
-        });
-
-        select.innerHTML = optionsHtml;
-        input.replaceWith(select);
-      }
+  if (datalist && typeof shelters !== 'undefined' && Array.isArray(shelters)) {
+    datalist.innerHTML = '<option value="No preference (Any shelter in need)"></option>';
+    shelters.forEach(s => {
+      const option = document.createElement('option');
+      option.value = `${s.name} (${s.city}, ${s.province})`;
+      datalist.appendChild(option);
     });
 
-    // Populate datalist for Desktop users
-    if (!isMobile && datalist) {
-      datalist.innerHTML = '<option value="No preference (Any shelter in need)"></option>';
-      shelters.forEach(s => {
-        const option = document.createElement('option');
-        option.value = `${s.name} (${s.city}, ${s.province})`;
-        datalist.appendChild(option);
-      });
+    // Re-run combobox initializer to bind custom dropdown listeners
+    if (typeof setupSearchableComboboxes === 'function') {
+      setupSearchableComboboxes();
     }
   }
 
