@@ -2,43 +2,43 @@
    HomeFur All — main.js
    --------------------------------------------------------------------------
    1. Mobile menu: hamburger toggle, close on link click, close on Escape.
-   2. Forms: fake-submit handling (no backend — shows a thank-you message).
+   2. Forms: fake-submit handling (shows thank-you message).
    3. Filter pills: supports multiple pill rows combined (province + city).
    4. Global Intersection Observer for Scroll Animations
    5. Multi-Tile Hero Collage Transition
-   6. Universal Mobile Datalist Fix for iOS/Android 
+   6. Custom Searchable Combobox (Search + Dropdown for iOS & Mobile)
    ========================================================================== */
 
-
 /* ---- 1. Mobile menu ---- */
-// Grab the hamburger button and the nav menu it controls
 const navToggle = document.getElementById('nav-toggle');
 const mainNav = document.getElementById('main-nav');
 
-// Toggle the menu open/closed, animate the icon, and lock page scroll
-navToggle.addEventListener('click', () => {
+if (navToggle && mainNav) {
+  // Toggle menu open/closed and lock page scroll
+  navToggle.addEventListener('click', () => {
     mainNav.classList.toggle('is-open');
     navToggle.classList.toggle('is-active');
     document.body.classList.toggle('nav-open');
-});
+  });
 
-// Close the menu automatically when a link inside it is tapped
-mainNav.querySelectorAll('a').forEach(link => {
+  // Close menu when a link inside it is tapped
+  mainNav.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
-        mainNav.classList.remove('is-open');
-        navToggle.classList.remove('is-active');
-        document.body.classList.remove('nav-open');
+      mainNav.classList.remove('is-open');
+      navToggle.classList.remove('is-active');
+      document.body.classList.remove('nav-open');
     });
-});
+  });
 
-// Close the menu when the Escape key is pressed (keyboard accessibility)
-document.addEventListener('keydown', (e) => {
+  // Close menu on Escape key press
+  document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-        mainNav.classList.remove('is-open');
-        navToggle.classList.remove('is-active');
-        document.body.classList.remove('nav-open');
+      mainNav.classList.remove('is-open');
+      navToggle.classList.remove('is-active');
+      document.body.classList.remove('nav-open');
     }
-});
+  });
+}
 
 /* ---- 2. Forms ---- */
 document.querySelectorAll('form[data-form]').forEach(form => {
@@ -47,15 +47,17 @@ document.querySelectorAll('form[data-form]').forEach(form => {
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     form.reset();
-    status.hidden = false;
-    status.textContent = form.dataset.success;
+    if (status) {
+      status.hidden = false;
+      status.textContent = form.dataset.success;
+    }
   });
 });
 
-/* ---- 3. Filter pills (supports multiple pill rows combined, e.g. province + city) ---- */
+/* ---- 3. Filter pills ---- */
 document.querySelectorAll('.filter-pills[data-target]').forEach(group => {
   const target = document.querySelector(group.dataset.target);
-  const key = group.dataset.filterKey; // e.g. "province" or "city"
+  const key = group.dataset.filterKey;
 
   group.addEventListener('click', (e) => {
     const pill = e.target.closest('.pill');
@@ -63,31 +65,34 @@ document.querySelectorAll('.filter-pills[data-target]').forEach(group => {
 
     group.querySelectorAll('.pill').forEach(p => p.classList.toggle('active', p === pill));
 
-        // If a specific city was picked, auto-select its province too
-    if (key === 'city' && pill.dataset.filter !== 'all') {
+    // If a specific city was picked, auto-select its province too
+    if (key === 'city' && pill.dataset.filter !== 'all' && typeof cityToProvince !== 'undefined') {
       const province = cityToProvince[pill.dataset.filter];
       const provinceGroup = document.querySelector(`.filter-pills[data-filter-key="province"][data-target="${group.dataset.target}"]`);
-      provinceGroup.querySelectorAll('.pill').forEach(p => {
-        p.classList.toggle('active', p.dataset.filter === province);
-      });
-    }
-
-    // If a province was picked, reset the city pill back to "All cities"
-    // unless the currently selected city already belongs to that province
-    if (key === 'province') {
-      const cityGroup = document.querySelector(`.filter-pills[data-filter-key="city"][data-target="${group.dataset.target}"]`);
-      const activeCityPill = cityGroup.querySelector('.pill.active');
-      const activeCity = activeCityPill ? activeCityPill.dataset.filter : 'all';
-      const cityStillValid = activeCity === 'all' || cityToProvince[activeCity] === pill.dataset.filter || pill.dataset.filter === 'all';
-
-      if (!cityStillValid) {
-        cityGroup.querySelectorAll('.pill').forEach(p => {
-          p.classList.toggle('active', p.dataset.filter === 'all');
+      if (provinceGroup) {
+        provinceGroup.querySelectorAll('.pill').forEach(p => {
+          p.classList.toggle('active', p.dataset.filter === province);
         });
       }
     }
 
-    applyFilters(target);
+    // Reset city if province changes
+    if (key === 'province' && typeof cityToProvince !== 'undefined') {
+      const cityGroup = document.querySelector(`.filter-pills[data-filter-key="city"][data-target="${group.dataset.target}"]`);
+      if (cityGroup) {
+        const activeCityPill = cityGroup.querySelector('.pill.active');
+        const activeCity = activeCityPill ? activeCityPill.dataset.filter : 'all';
+        const cityStillValid = activeCity === 'all' || cityToProvince[activeCity] === pill.dataset.filter || pill.dataset.filter === 'all';
+
+        if (!cityStillValid) {
+          cityGroup.querySelectorAll('.pill').forEach(p => {
+            p.classList.toggle('active', p.dataset.filter === 'all');
+          });
+        }
+      }
+    }
+
+    if (target) applyFilters(target);
   });
 });
 
@@ -106,7 +111,7 @@ function applyFilters(grid) {
   });
 }
 
-/* 4. Global Intersection Observer for Scroll Animations */
+/* ---- 4. Global Intersection Observer for Scroll Animations ---- */
 document.addEventListener('DOMContentLoaded', () => {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -119,12 +124,11 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
 });
 
-/* 5. Multi-Tile Hero Collage Transition */
+/* ---- 5. Multi-Tile Hero Collage Transition ---- */
 document.addEventListener('DOMContentLoaded', () => {
   const slideshows = document.querySelectorAll('.hero-slideshow');
   if (!slideshows.length) return;
 
-  // Image pools for each tile
   const tileImagePools = [
     [
       'images/landing/dog-tilea.jpeg',
@@ -149,8 +153,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const images = tileImagePools[tileIndex] || tileImagePools[0];
     let currentIndex = 0;
-
-    // Stagger start time for each tile
     const intervalTime = 4000 + (tileIndex * 1200);
 
     setInterval(() => {
@@ -166,36 +168,86 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-/* 6. Universal Mobile Datalist Fix for iOS/Android */
-function fixMobileDatalists() {
-  const isMobile = window.matchMedia('(max-width: 768px)').matches || ('ontouchstart' in window);
-  if (!isMobile) return;
+/* ---- 6. Custom Searchable Combobox (Text Search + Full Dropdown) ---- */
+function setupSearchableComboboxes() {
+  const inputs = document.querySelectorAll('input[list]');
 
-  const inputsWithDatalist = document.querySelectorAll('input[list]');
-
-  inputsWithDatalist.forEach(input => {
+  inputs.forEach(input => {
     const listId = input.getAttribute('list');
     const datalist = document.getElementById(listId);
     if (!datalist) return;
 
-    const select = document.createElement('select');
-    select.id = input.id;
-    select.className = input.className;
-    select.name = input.name;
+    // Wrap input inside container if not already wrapped
+    let wrapper = input.closest('.select-wrapper');
+    if (!wrapper) {
+      wrapper = document.createElement('div');
+      wrapper.className = 'select-wrapper';
+      input.parentNode.insertBefore(wrapper, input);
+      wrapper.appendChild(input);
+    }
 
-    select.innerHTML = `<option value="">${input.placeholder || 'Select option...'}</option>`;
+    // Create custom floating suggestions panel
+    let listEl = wrapper.querySelector('.combobox-list');
+    if (!listEl) {
+      listEl = document.createElement('ul');
+      listEl.className = 'combobox-list';
+      listEl.hidden = true;
+      wrapper.appendChild(listEl);
+    }
 
-    datalist.querySelectorAll('option').forEach(opt => {
-      const option = document.createElement('option');
-      option.value = opt.value;
-      option.textContent = opt.textContent || opt.value;
-      select.appendChild(option);
+    function renderOptions(filterText = '') {
+      const options = Array.from(datalist.querySelectorAll('option'));
+      const query = filterText.trim().toLowerCase();
+
+      const filtered = options.filter(opt => {
+        const val = (opt.value || opt.textContent).toLowerCase();
+        return !query || val.includes(query);
+      });
+
+      if (!filtered.length) {
+        listEl.hidden = true;
+        return;
+      }
+
+      listEl.innerHTML = filtered.map(opt => {
+        const val = opt.value || opt.textContent;
+        return `<li class="combobox-item" data-value="${val}">${val}</li>`;
+      }).join('');
+
+      listEl.hidden = false;
+    }
+
+    // Open options list on click/focus
+    input.addEventListener('focus', () => renderOptions(input.value));
+    input.addEventListener('click', () => renderOptions(input.value));
+
+    // Filter list while typing
+    input.addEventListener('input', () => {
+      renderOptions(input.value);
     });
 
-    input.replaceWith(select);
+    // Select an option
+    listEl.addEventListener('click', (e) => {
+      const item = e.target.closest('.combobox-item');
+      if (!item) return;
+
+      input.value = item.dataset.value;
+      listEl.hidden = true;
+
+      // Trigger change/input events for filtering scripts
+      input.dispatchEvent(new Event('input', { bubbles: true }));
+      input.dispatchEvent(new Event('change', { bubbles: true }));
+    });
+
+    // Close options list when tapping outside
+    document.addEventListener('click', (e) => {
+      if (!wrapper.contains(e.target)) {
+        listEl.hidden = true;
+      }
+    });
   });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  fixMobileDatalists();
+  setupSearchableComboboxes();
 });
