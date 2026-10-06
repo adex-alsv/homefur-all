@@ -303,8 +303,8 @@ p {
 
 .stat-chip {
     position: absolute;
-    left: -18px;
-    bottom: -18px;
+    left: 32px;
+    bottom: 32px;
     max-width: 168px;
     padding: 1rem 1.3rem;
     background: var(--butter);
@@ -669,11 +669,10 @@ p {
         flex-direction: column;
         gap: 0;
         padding: .5rem 24px 1.75rem;
-        background: rgba(250, 245, 232, 0.92);
-        backdrop-filter: blur(10px);
+        background: rgba(250, 245, 232);
         border-bottom: 1px solid var(--line);
         border-radius: 0 0 var(--radius) var(--radius);
-        box-shadow: 0 16px 30px rgba(35, 38, 32, 0.12);
+        box-shadow: 0 24px 30px rgba(35, 38, 32, 0.12);
         opacity: 0;
         visibility: hidden;
         transform: translateY(40px);
@@ -687,7 +686,7 @@ p {
     .main-nav a {
         padding: 1.1rem 0;
         font-size: 1.15rem;
-        border-bottom: 1px solid var(--line);
+        border-bottom: 2px solid var(--line);
     }
 
     .main-nav a.nav-cta-mobile {
