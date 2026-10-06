@@ -39,7 +39,7 @@ const pets = [
     new Pet(16, 'Matcha', 'cat', 'Puspin', '5 mos', 'PAWS Animal Rehabilitation Center', 'images/adopt/adopt16-matcha.jpeg'),
 
     // Page 3
-    new Pet(17, 'Oreo', 'dog', 'Aspin', '3.5 yrs', 'The Pawject', 'images/adopt/adopt17-oreo.jpeg'),
+    new Pet(17, 'Oreo', 'dog', 'Aspin Mix', '3.5 yrs', 'The Pawject', 'images/adopt/adopt17-oreo.jpeg'),
     new Pet(18, 'Felix', 'cat', 'Puspin', '4 yrs', 'LYKA\'s Dog and Cat Shelter', 'images/adopt/adopt18-felix.jpeg'),
     new Pet(19, 'Buster', 'dog', 'Aspin', '1 yr', 'Noah\'s Ark Dog and Cat Shelter', 'images/adopt/adopt19-buster.jpeg'),
     new Pet(20, 'Tofu', 'cat', 'Puspin', '7 mos', 'The Home of Well-Loved Strays', 'images/adopt/adopt20-tofu.jpeg'),
