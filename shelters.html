@@ -46,50 +46,45 @@
 
   <section class="shelters-page">
     <div class="wrap">
+      <!-- Section Header Flex Container -->
       <div class="section-header-flex">
         <div>
           <p class="eyebrow">Our Pawtners</p>
           <h2>Shelters near you</h2>
         </div>
-      </div>
 
-      <div class="filter-controls-right">
-        <div class="filter-pills" data-target="#shelter-grid" data-filter-key="province">
-          <button class="pill active" type="button" data-filter="all">All provinces</button>
-          <button class="pill" type="button" data-filter="pampanga">Pampanga</button>
-          <button class="pill" type="button" data-filter="metro-manila">Metro Manila</button>
-          <button class="pill" type="button" data-filter="bulacan">Bulacan</button>
-          <button class="pill" type="button" data-filter="cavite">Cavite</button>
-          <button class="pill" type="button" data-filter="tarlac">Tarlac</button>
-        </div>
+        <div class="filter-controls-right">
+          <!-- Province Filter Pills aligned to header level -->
+          <div class="filter-pills" data-target="#shelter-grid" data-filter-key="province">
+            <button class="pill active" type="button" data-filter="all">All provinces</button>
+            <button class="pill" type="button" data-filter="pampanga">Pampanga</button>
+            <button class="pill" type="button" data-filter="metro-manila">Metro Manila</button>
+            <button class="pill" type="button" data-filter="bulacan">Bulacan</button>
+            <button class="pill" type="button" data-filter="cavite">Cavite</button>
+            <button class="pill" type="button" data-filter="tarlac">Tarlac</button>
+          </div>
 
-        <div class="filter-dropdown">
-          <select id="city-filter" class="city-select" aria-label="Filter by city">
-            <option value="all">All cities</option>
-            <option value="angeles">Angeles</option>
-            <option value="mabalacat">Mabalacat</option>
-            <option value="floridablanca">Floridablanca</option>
-            <option value="quezon-city">Quezon City</option>
-            <option value="capas">Capas</option>
-            <option value="san-jose-del-monte">San Jose del Monte</option>
-            <option value="angat">Angat</option>
-            <option value="san-miguel">San Miguel</option>
-            <option value="alfonso">Alfonso</option>
-          </select>
-        </div>
-
-        <div class="shelter-grid" id="shelter-grid">
-          <!-- Shelter cards from shelters-list.js go here -->
+          <!-- City Dropdown directly underneath pills -->
+          <div class="filter-dropdown">
+            <select id="city-filter" class="city-select" aria-label="Filter by city">
+              <option value="all">All cities</option>
+              <option value="angeles">Angeles</option>
+              <option value="mabalacat">Mabalacat</option>
+              <option value="floridablanca">Floridablanca</option>
+              <option value="quezon-city">Quezon City</option>
+              <option value="capas">Capas</option>
+              <option value="san-jose-del-monte">San Jose del Monte</option>
+              <option value="angat">Angat</option>
+              <option value="san-miguel">San Miguel</option>
+              <option value="alfonso">Alfonso</option>
+            </select>
+          </div>
         </div>
       </div>
 
-      <div class="pager">
-        <button class="pager-btn" id="pager-prev" type="button" aria-label="Previous page">←</button>
-        <span class="pager-status" id="pager-status"></span>
-        <button class="pager-btn pager-btn--next" id="pager-next" type="button" aria-label="Next page">→</button>
+      <div class="shelter-grid" id="shelter-grid">
+        <!-- Shelter cards rendered via JS -->
       </div>
-    </div>
-  </section>
 
 </main>
 
