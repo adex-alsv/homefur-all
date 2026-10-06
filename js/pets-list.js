@@ -19,7 +19,7 @@ class Pet {
 
 const pets = [
     // Page 1
-    new Pet(1, 'Mochi', 'dog', 'Golden Retrivier Aspin Mix', '2 yrs', 'The Pawject', 'images/landing/adopt1-mochi.jpeg'),
+    new Pet(1, 'Mochi', 'dog', 'Golden Retriever Aspin Mix', '2 yrs', 'The Pawject', 'images/landing/adopt1-mochi.jpeg'),
     new Pet(2, 'Ube', 'cat', 'Puspin', '1 yr', 'Noah\'s Ark Dog and Cat Shelter', 'images/landing/adopt2-ube.jpeg'),
     new Pet(3, 'Biscuit', 'dog', 'Shih Tzu Mix', '5 yrs', 'PAWS Animal Rehabilitation Center', 'images/landing/adopt3-biscuit.jpeg'),
     new Pet(4, 'Luna', 'cat', 'Puspin', '8 mos', 'LYKA\'s Dog and Cat Shelter', 'images/landing/adopt4-luna.jpeg'),
