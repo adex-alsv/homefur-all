@@ -46,31 +46,33 @@
 
   <section class="pets">
     <div class="wrap">
-      <div class="section-head">
+      <!-- Header flex container -->
+      <div class="section-header-flex">
         <div>
-          <p class="eyebrow">Waiting for you</p>
+          <p class="eyebrow">WAITING FOR YOU</p>
           <h2>Meet our fur(less) babies</h2>
         </div>
-        
-            <div class="filter-controls">
-                <!-- Dog or Cat Filter Pills -->
-                <div class="filter-pills" data-filter-key="type">
-                    <button class="pill active" type="button" data-filter="all">All</button>
-                    <button class="pill" type="button" data-filter="dog">Dogs</button>
-                    <button class="pill" type="button" data-filter="cat">Cats</button>
-                </div>
-                <!-- Searchable Shelter Dropdown Input -->
-                <div class="select-wrapper" filter-dropdown>
-                    <input id="pet-shelter-filter" list="pet-shelters-datalist" placeholder="Select or type shelter..." autocomplete="off">
-                    <datalist id="pet-shelters-datalist">
-                        <option value="All Shelters"></option>
-                    </datalist>
-                </div>
-            </div>
+
+        <div class="filter-controls-right">
+          <!-- Type Filter Pills -->
+          <div class="filter-pills" data-filter-key="type">
+            <button class="pill active" type="button" data-filter="all">All</button>
+            <button class="pill" type="button" data-filter="dog">Dogs</button>
+            <button class="pill" type="button" data-filter="cat">Cats</button>
+          </div>
+
+          <!-- Shelter Search Dropdown -->
+          <div class="select-wrapper">
+            <input id="pet-shelter-filter" list="pet-shelters-datalist" placeholder="Select or type shelter..." autocomplete="off">
+            <datalist id="pet-shelters-datalist">
+              <!-- Populated by pets-list.js -->
+            </datalist>
+          </div>
+        </div>
       </div>
 
       <div class="pet-grid" id="pet-grid">
-        <!-- Dynamic Pet Cards rendered by pets-list.js -->
+        <!-- Cards rendered by pets-list.js -->
       </div>
 
       <div class="pager">

@@ -46,39 +46,41 @@
 
   <section class="shelters-page">
     <div class="wrap">
-      <div class="section-head">
+      <div class="section-header-flex">
         <div>
           <p class="eyebrow">Our Pawtners</p>
           <h2>Shelters near you</h2>
         </div>
       </div>
 
-      <div class="filter-pills" data-target="#shelter-grid" data-filter-key="province">
-        <button class="pill active" type="button" data-filter="all">All provinces</button>
-        <button class="pill" type="button" data-filter="pampanga">Pampanga</button>
-        <button class="pill" type="button" data-filter="metro-manila">Metro Manila</button>
-        <button class="pill" type="button" data-filter="bulacan">Bulacan</button>
-        <button class="pill" type="button" data-filter="cavite">Cavite</button>
-        <button class="pill" type="button" data-filter="tarlac">Tarlac</button>
-      </div>
+      <div class="filter-controls-right">
+        <div class="filter-pills" data-target="#shelter-grid" data-filter-key="province">
+          <button class="pill active" type="button" data-filter="all">All provinces</button>
+          <button class="pill" type="button" data-filter="pampanga">Pampanga</button>
+          <button class="pill" type="button" data-filter="metro-manila">Metro Manila</button>
+          <button class="pill" type="button" data-filter="bulacan">Bulacan</button>
+          <button class="pill" type="button" data-filter="cavite">Cavite</button>
+          <button class="pill" type="button" data-filter="tarlac">Tarlac</button>
+        </div>
 
-      <div class="filter-dropdown">
-        <select id="city-filter" class="city-select" aria-label="Filter by city">
-          <option value="all">All cities</option>
-          <option value="angeles">Angeles</option>
-          <option value="mabalacat">Mabalacat</option>
-          <option value="floridablanca">Floridablanca</option>
-          <option value="quezon-city">Quezon City</option>
-          <option value="capas">Capas</option>
-          <option value="san-jose-del-monte">San Jose del Monte</option>
-          <option value="angat">Angat</option>
-          <option value="san-miguel">San Miguel</option>
-          <option value="alfonso">Alfonso</option>
-        </select>
-      </div>
+        <div class="filter-dropdown">
+          <select id="city-filter" class="city-select" aria-label="Filter by city">
+            <option value="all">All cities</option>
+            <option value="angeles">Angeles</option>
+            <option value="mabalacat">Mabalacat</option>
+            <option value="floridablanca">Floridablanca</option>
+            <option value="quezon-city">Quezon City</option>
+            <option value="capas">Capas</option>
+            <option value="san-jose-del-monte">San Jose del Monte</option>
+            <option value="angat">Angat</option>
+            <option value="san-miguel">San Miguel</option>
+            <option value="alfonso">Alfonso</option>
+          </select>
+        </div>
 
-      <div class="shelter-grid" id="shelter-grid">
-        <!-- Shelter cards from shelters-list.js go here -->
+        <div class="shelter-grid" id="shelter-grid">
+          <!-- Shelter cards from shelters-list.js go here -->
+        </div>
       </div>
 
       <div class="pager">

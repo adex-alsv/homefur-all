@@ -69,6 +69,56 @@
   color: var(--ink-soft);
 }
 
+/* ---- Header Flex Container (Right-aligned Filter Controls) ---- */
+.section-header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.filter-controls-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.8rem;
+  margin-left: auto;
+}
+
+.filter-controls-right .filter-dropdown {
+  margin-bottom: 0;
+}
+
+/* Align select wrapper inside right filter controls */
+.filter-controls-right .select-wrapper {
+  width: 280px;
+  max-width: 100%;
+}
+
+/* Mobile Responsiveness for filters */
+@media (max-width: 768px) {
+  .section-header-flex {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .filter-controls-right {
+    align-items: flex-start;
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .filter-controls-right .filter-dropdown {
+    width: 100%;
+  }
+
+  .filter-controls-right .select-wrapper {
+    width: 100%;
+  }
+}
+
 /* ---- 2. Filter Dropdown ---- */
 .filter-dropdown {
   margin-bottom: 2.5rem;
