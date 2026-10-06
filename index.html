@@ -7,6 +7,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="images/logo-icon.png">
 <link rel="shortcut icon" href="images/logo-icon.png">
 <link rel="apple-touch-icon" href="images/logo-icon.png">
+<link rel="stylesheet" href="css/shelters-adopt.css">
 <link rel="stylesheet" href="css/base.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -121,7 +122,7 @@
         <article class="help-card">
           <span class="help-num">Volunteer</span>
           <p>Walk dogs, socialize cats, or help at intake. Shelters list their own volunteer hours and needs.</p>
-          <a href="#shelters" class="link-arrow">See who needs hands →</a>
+          <a href="volunteer.html#volunteer-form" class="link-arrow">Apply now →</a>
         </article>
       </div>
     </div>
@@ -134,59 +135,31 @@
             stroke-dasharray="1 14" stroke-linecap="round"/>
     </svg>
   </div>
-    <section id="shelters" class="shelters">
+  <section id="shelters" class="shelters">
     <div class="wrap">
       <div class="section-head">
         <div>
           <p class="eyebrow">Our Pawtners</p>
           <h2>Featured shelters</h2>
         </div>
-        <div class="filter-pills">
-          <button class="pill active" type="button">All areas</button>
-          <button class="pill" type="button">Angeles</button>
-          <button class="pill" type="button">Mabalacat</button>
+        <div class="filter-controls">
+          <div class="select-wrapper">
+            <select id="landing-province-filter" class="city-select" aria-label="Filter shelters by province">
+              <option value="all">All Provinces</option>
+              <option value="pampanga">Pampanga</option>
+              <option value="metro-manila">Metro Manila</option>
+              <option value="tarlac">Tarlac</option>
+              <option value="bulacan">Bulacan</option>
+              <option value="cavite">Cavite</option>
+            </select>
+          </div>
         </div>
       </div>
 
-      <div class="shelter-grid">
-        <article class="shelter-card">
-          <img src="images/shelter/shelter-lykas.jpg" alt="LYKA's Dog and Cat Shelter Tarp">
-          <div class="shelter-body">
-            <h3>LYKA's Dog and Cat Shelter</h3>
-            <p class="shelter-loc">Angeles City · Pampanga</p>
-            <p>An independent sanctuary providing shelter, food, and basic veterinary care to neglected dogs and cats.</p>
-            <div class="shelter-meta">
-              <span>52 animals shelter(ed)</span>
-              <a href="https://www.facebook.com/lykasdogandcatshelter" class="link-arrow" target="_blank">Visit shelter →</a>
-            </div>
-          </div>
-        </article>
-        <article class="shelter-card">
-          <img src="images/shelter/shelter-hows.jpg" alt="Cat at Home of Well-Love Strays">
-          <div class="shelter-body">
-            <h3>The Home of Well-Loved Strays</h3>
-            <p class="shelter-loc">Floridablanca · Pampanga</p>
-            <p>A dedicated safe haven providing critical care and socialization to prepare local rescues for adoption.</p>
-            <div class="shelter-meta">
-              <span>84 animals shelter(ed)</span>
-              <a href="https://facebook.com/thehowsph/" class="link-arrow" target="_blank">Visit shelter →</a>
-            </div>
-          </div>
-        </article>
-        <article class="shelter-card">
-          <img src="images/shelter/shelter-noahs-ark.jpeg" alt="Dog eating at Noah's Ark Shelter">
-          <div class="shelter-body">
-            <h3>Noah's Ark Dog and Cat Shelter</h3>
-            <p class="shelter-loc">Mabalacat City · Pampanga</p>
-            <p>A compassionate non-profit giving neglected strays a second chance through rehabilitation and adoption drives.</p>
-            <div class="shelter-meta">
-              <span>110 animals shelter(ed)</span>
-              <a href="https://facebook.com/Noahsarkdogandcatshelter/" class="link-arrow" target="_blank">Visit shelter →</a>
-            </div>
-          </div>
-        </article>
+      <div class="shelter-grid" id="featured-shelter-grid">
+        <!-- Top 3 shelters dynamically rendered via JS -->
       </div>
-      <a href="shelters.html" class="btn btn-outline see-all">See all 38 shelters</a>
+      <a href="shelters.html" class="btn btn-outline see-all">See all shelters →</a>
     </div>
   </section>
   <section id="pets" class="pets">
@@ -195,11 +168,6 @@
         <div>
           <p class="eyebrow">Waiting for you</p>
           <h2>Meet a few of the animals</h2>
-        </div>
-        <div class="filter-pills">
-          <button class="pill active" type="button">All</button>
-          <button class="pill" type="button">Dogs</button>
-          <button class="pill" type="button">Cats</button>
         </div>
       </div>
 
@@ -275,6 +243,7 @@
     <span>© 2026 HomeFur All. A student project.</span>
   </div>
 </footer>
+<script src="js/shelters-list.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

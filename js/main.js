@@ -7,6 +7,7 @@
    4. Global Intersection Observer for Scroll Animations
    5. Multi-Tile Hero Collage Transition
    6. Custom Searchable Combobox (Search + Dropdown for iOS & Mobile)
+   7. Landing Page Featured Shelters Dropdown Filter
    ========================================================================== */
 
 /* ---- 1. Mobile menu ---- */
@@ -251,3 +252,55 @@ function setupSearchableComboboxes() {
     });
   });
 }
+
+/* ---- 7. Landing Page Featured Shelters Dropdown Filter ---- */
+document.addEventListener('DOMContentLoaded', () => {
+  const featuredGrid = document.getElementById('featured-shelter-grid');
+  const provinceFilter = document.getElementById('landing-province-filter');
+
+  if (!featuredGrid || typeof shelters === 'undefined' || !Array.isArray(shelters)) return;
+
+  function renderFeaturedShelters() {
+    const selectedProvince = provinceFilter ? provinceFilter.value : 'all';
+
+    // 1. Filter shelters by selected province slug
+    const filtered = shelters.filter(s => {
+      return selectedProvince === 'all' || s.provinceSlug === selectedProvince;
+    });
+
+    // 2. Limit output to the first 3 cards
+    const topThree = filtered.slice(0, 3);
+
+    if (!topThree.length) {
+      featuredGrid.innerHTML = '<p class="no-results">No shelters found for this province.</p>';
+      return;
+    }
+
+    // 3. Render the top 3 cards
+    featuredGrid.innerHTML = topThree.map(s => {
+      const visitUrl = (s.contacts && s.contacts.socials !== 'N/A') ? s.contacts.socials : (s.maps !== 'N/A' ? s.maps : 'shelters.html');
+
+      return `
+        <article class="shelter-card" data-province="${s.provinceSlug}">
+          <img src="${s.image}" alt="${s.name}">
+          <div class="shelter-body">
+            <h3>${s.name}</h3>
+            <p class="shelter-loc">${s.city} · ${s.province}</p>
+            <p>${s.description}</p>
+            <div class="shelter-meta">
+              <a href="${visitUrl}" class="link-arrow" target="_blank" rel="noopener">Visit shelter →</a>
+            </div>
+          </div>
+        </article>
+      `;
+    }).join('');
+  }
+
+  // Initial load
+  renderFeaturedShelters();
+
+  // Listen for dropdown selection changes
+  if (provinceFilter) {
+    provinceFilter.addEventListener('change', renderFeaturedShelters);
+  }
+});
