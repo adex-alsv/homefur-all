@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'images/shelter/shelter-angeles-office.jpg'
     ],
     [
-      'images/landing/cat-tileb.jpeg',
+      'images/shelter/shelter-paws.jpeg',
       'images/shelter/shelter-hound-haven.jpeg',
       'images/shelter/shelter-biyaya.jpeg'
     ],
